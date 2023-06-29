@@ -23,6 +23,9 @@ import Notify from './App/screens/notification/Notify';
 
 import Locations from './App/screens/location/Locations';
 import OverView from './App/screens/location/OverView';
+import Home from './App/screens/home/Home';
+import Diagnose from './App/screens/home/Diagnose';
+import Consultant from './App/screens/home/Consultant';
 
 const Stack = createStackNavigator();
 const App = () => {
@@ -100,8 +103,8 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Over View"
-          component={OverView}
+          name="Boba"
+          component={Consultant}
           options={{
             headerShown: true,
             headerTintColor: 'black',
@@ -118,6 +121,7 @@ const App = () => {
         />
       </Stack.Navigator>
     </NavigationContainer>
+    // <Home />
   );
 };
 
