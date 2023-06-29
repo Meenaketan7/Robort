@@ -19,57 +19,76 @@ const MyField = () => {
       <View style={{flex: 1}}>
         <View style={styles.listContainer}>
           <View style={styles.item}>
-            <View style={{flexDirection:"row",justifyContent:'space-between', marginBottom:spacing.sm}}>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginBottom: spacing.sm,
+              }}>
               <Text style={styles.itemHeading}>Field1</Text>
               <TouchableOpacity>
-              <Text style={{fontWeight:'900',fontSize:fonts.xl, top:-12}}>...</Text>
+                <Text style={styles.dots}>...</Text>
               </TouchableOpacity>
             </View>
-            <View style={{flexDirection:"row", marginBottom:spacing.sm}}>
-              <Image source={require('../../assets/image/Icon8.png')}/>
+            <View style={{flexDirection: 'row', marginBottom: spacing.sm}}>
+              <Image source={require('../../assets/image/Icon8.png')} />
               <Text style={styles.itemText}>Wheat</Text>
-              
             </View>
-            <View style={{flexDirection:"row", marginBottom:spacing.sm}}>
-              <Image source={require('../../assets/image/Icon9.png')}/>
-              <Text style={styles.itemText}>El Mansoura, El Dakahlia, Egypt</Text>
-              
+            <View style={{flexDirection: 'row', marginBottom: spacing.sm}}>
+              <Image source={require('../../assets/image/Icon9.png')} />
+              <Text style={styles.itemText}>
+                El Mansoura, El Dakahlia, Egypt
+              </Text>
             </View>
           </View>
           <View style={styles.item}>
-            <View style={{flexDirection:"row",justifyContent:'space-between', marginBottom:spacing.sm}}>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginBottom: spacing.sm,
+              }}>
               <Text style={styles.itemHeading}>Field2</Text>
               <TouchableOpacity>
-              <Text style={{fontWeight:'900',fontSize:fonts.xl, top:-12}}>...</Text>
+                <Text style={styles.dots}>
+                  ...
+                </Text>
               </TouchableOpacity>
             </View>
-            <View style={{flexDirection:"row", marginBottom:spacing.sm}}>
-              <Image source={require('../../assets/image/Icon8.png')}/>
+            <View style={{flexDirection: 'row', marginBottom: spacing.sm}}>
+              <Image source={require('../../assets/image/Icon8.png')} />
               <Text style={styles.itemText}>Wheat</Text>
-              
             </View>
-            <View style={{flexDirection:"row", marginBottom:spacing.sm}}>
-              <Image source={require('../../assets/image/Icon9.png')}/>
-              <Text style={styles.itemText}>El Mansoura, El Dakahlia, Egypt</Text>
-              
+            <View style={{flexDirection: 'row', marginBottom: spacing.sm}}>
+              <Image source={require('../../assets/image/Icon9.png')} />
+              <Text style={styles.itemText}>
+                El Mansoura, El Dakahlia, Egypt
+              </Text>
             </View>
           </View>
           <View style={styles.item}>
-            <View style={{flexDirection:"row",justifyContent:'space-between', marginBottom:spacing.sm}}>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginBottom: spacing.sm,
+              }}>
               <Text style={styles.itemHeading}>Field3</Text>
               <TouchableOpacity>
-              <Text style={{fontWeight:'900',fontSize:fonts.xl, top:-12}}>...</Text>
+                <Text style={styles.dots}>
+                  ...
+                </Text>
               </TouchableOpacity>
             </View>
-            <View style={{flexDirection:"row", marginBottom:spacing.sm}}>
-              <Image source={require('../../assets/image/Icon8.png')}/>
+            <View style={{flexDirection: 'row', marginBottom: spacing.sm}}>
+              <Image source={require('../../assets/image/Icon8.png')} />
               <Text style={styles.itemText}>Wheat</Text>
-              
             </View>
-            <View style={{flexDirection:"row", marginBottom:spacing.sm}}>
-              <Image source={require('../../assets/image/Icon9.png')}/>
-              <Text style={styles.itemText}>El Mansoura, El Dakahlia, Egypt</Text>
-              
+            <View style={{flexDirection: 'row', marginBottom: spacing.sm}}>
+              <Image source={require('../../assets/image/Icon9.png')} />
+              <Text style={styles.itemText}>
+                El Mansoura, El Dakahlia, Egypt
+              </Text>
             </View>
           </View>
         </View>
@@ -85,7 +104,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
-  
+
   listContainer: {
     flexDirection: 'column',
     flex: 1,
@@ -94,7 +113,7 @@ const styles = StyleSheet.create({
   item: {
     backgroundColor: colors.white,
     padding: spacing.md,
-    
+
     paddingVertical: spacing.sm,
     marginVertical: spacing.sm,
     ...Platform.select({
@@ -106,13 +125,12 @@ const styles = StyleSheet.create({
       },
       android: {
         elevation: 5,
-        
       },
     }),
     borderRadius: 10,
     overflow: 'hidden',
     borderColor: colors.green,
-    borderWidth:1,
+    borderWidth: 1,
   },
   icon: {
     alignSelf: 'center',
@@ -126,6 +144,12 @@ const styles = StyleSheet.create({
   itemHeading: {
     fontWeight: '500',
     fontSize: fonts.lg,
+    color: colors.black,
+  },
+  dots: {
+    fontWeight: '900',
+    fontSize: fonts.xl,
+    top: -12,
     color: colors.black,
   },
 });

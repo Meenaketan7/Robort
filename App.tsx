@@ -21,9 +21,13 @@ import HelpSupport from './App/screens/profile/HelpSupport';
 import Rating from './App/screens/profile/Rating';
 import Notify from './App/screens/notification/Notify';
 
+import Locations from './App/screens/location/Locations';
+import OverView from './App/screens/location/OverView';
+
 const Stack = createStackNavigator();
 const App = () => {
   return (
+    // <Login/>
     // <NavigationContainer>
     //   <Stack.Navigator >
     //     <Stack.Screen name="Onboarding" component={OnboardingScreen} options={{headerShown:false}}/>
@@ -96,8 +100,8 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Notification"
-          component={Notify}
+          name="Over View"
+          component={OverView}
           options={{
             headerShown: true,
             headerTintColor: 'black',
