@@ -21,7 +21,9 @@ const Consultant = () => {
       />
       <View style={{justifyContent: 'center', alignItems: 'center'}}>
         <Text style={styles.selectTitle}>Welcome, User</Text>
-        <Text style={styles.selectSubTitle}>Let's start a conversation with Boba</Text>
+        <Text style={styles.selectSubTitle}>
+          Let's start a conversation with Boba
+        </Text>
         <TouchableOpacity onPress={() => 'Login'} style={styles.btn}>
           <Text style={styles.btnText}>Start</Text>
         </TouchableOpacity>

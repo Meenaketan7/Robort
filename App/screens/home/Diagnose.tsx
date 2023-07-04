@@ -8,14 +8,16 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {fonts, spacing} from '../../util/size';
 import {colors} from '../../util/color';
 import {TouchableOpacity} from 'react-native';
 
 const Diagnose = () => {
+  const [disease, setDisease] = useState('');
   return (
     <SafeAreaView style={styles.container}>
+      <Text style={styles.heading}>Diseases in your crop:</Text>
       <View style={{flex: 1}}>
         <View style={styles.listContainer}>
           <View style={styles.item}>
@@ -24,27 +26,21 @@ const Diagnose = () => {
                 source={require('../../assets/image/WhiteSpikes.png')}
                 style={styles.image}
               />
+
               <View>
-                <Text style={styles.itemHeading}>White Spike</Text>
+                <Text style={styles.itemHeading}>Posifolia fusiformis</Text>
                 <Text style={styles.itemText}>Aug 20, 2022</Text>
                 <TouchableOpacity>
                   <View style={styles.cardBar}>
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                      }}>
-                      <View
-                        style={{flexDirection: 'row', alignItems: 'center'}}>
-                        <Text style={styles.barText}>Read More</Text>
-                      </View>
+                    <View style={{alignItems: 'center'}}>
+                      <Text style={styles.barText}>Read More</Text>
+                    </View>
 
-                      <View style={[styles.square]}>
-                        <Image
-                          source={require('../../assets/image/Icon20.png')}
-                          style={{height: 7, width: 7}}
-                        />
-                      </View>
+                    <View style={[styles.square]}>
+                      <Image
+                        source={require('../../assets/image/Icon20.png')}
+                        style={{width: 5, height: 11}}
+                      />
                     </View>
                   </View>
                 </TouchableOpacity>
@@ -58,27 +54,21 @@ const Diagnose = () => {
                 source={require('../../assets/image/WhiteSpikes2.png')}
                 style={styles.image}
               />
+
               <View>
                 <Text style={styles.itemHeading}>Posifolia fusiformis</Text>
                 <Text style={styles.itemText}>Aug 20, 2022</Text>
                 <TouchableOpacity>
                   <View style={styles.cardBar}>
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                      }}>
-                      <View
-                        style={{flexDirection: 'row', alignItems: 'center'}}>
-                        <Text style={styles.barText}>Read More</Text>
-                      </View>
+                    <View style={{alignItems: 'center'}}>
+                      <Text style={styles.barText}>Read More</Text>
+                    </View>
 
-                      <View style={[styles.square]}>
-                        <Image
-                          source={require('../../assets/image/Icon20.png')}
-                          style={{height: 7, width: 7}}
-                        />
-                      </View>
+                    <View style={[styles.square]}>
+                      <Image
+                        source={require('../../assets/image/Icon20.png')}
+                        style={{width: 5, height: 11}}
+                      />
                     </View>
                   </View>
                 </TouchableOpacity>
@@ -89,30 +79,24 @@ const Diagnose = () => {
           <View style={styles.item}>
             <View style={styles.itemView}>
               <Image
-                source={require('../../assets/image//WhiteSpikes3.png')}
+                source={require('../../assets/image/WhiteSpikes3.png')}
                 style={styles.image}
               />
+
               <View>
-                <Text style={styles.itemHeading}>Rust</Text>
+                <Text style={styles.itemHeading}>Posifolia fusiformis</Text>
                 <Text style={styles.itemText}>Aug 20, 2022</Text>
                 <TouchableOpacity>
                   <View style={styles.cardBar}>
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                      }}>
-                      <View
-                        style={{flexDirection: 'row', alignItems: 'center'}}>
-                        <Text style={styles.barText}>Read More</Text>
-                      </View>
+                    <View style={{alignItems: 'center'}}>
+                      <Text style={styles.barText}>Read More</Text>
+                    </View>
 
-                      <View style={[styles.square]}>
-                        <Image
-                          source={require('../../assets/image/Icon20.png')}
-                          style={{height: 7, width: 7}}
-                        />
-                      </View>
+                    <View style={[styles.square]}>
+                      <Image
+                        source={require('../../assets/image/Icon20.png')}
+                        style={{width: 5, height: 11}}
+                      />
                     </View>
                   </View>
                 </TouchableOpacity>
@@ -132,18 +116,19 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
-
+  heading: {
+    fontSize: fonts.lg,
+    fontWeight: 'bold',
+    color: colors.black,
+  },
   listContainer: {
     flexDirection: 'column',
     flex: 1,
-    marginTop: 10,
+    marginTop: spacing.sm,
+    alignItems: 'center',
   },
   item: {
     backgroundColor: colors.white,
-    padding: spacing.md,
-
-    paddingVertical: spacing.md,
-    marginVertical: spacing.sm,
     ...Platform.select({
       ios: {
         shadowColor: 'black',
@@ -152,55 +137,56 @@ const styles = StyleSheet.create({
         shadowRadius: 10,
       },
       android: {
-        elevation: 5,
+        elevation: 1,
       },
     }),
     borderRadius: 15,
-    overflow: 'hidden',
     borderColor: colors.green,
     borderWidth: 1,
-    width: 350,
+    width: 360,
+    height: 130,
+    padding: spacing.sm,
+    marginVertical: spacing.md,
   },
 
   itemText: {
-    paddingVertical: spacing.sm,
+    padding: 5,
     color: colors.darkGrey,
-    fontSize: fonts.md,
-    paddingHorizontal: spacing.md,
+    fontSize: 14,
     textAlign: 'center',
   },
   itemHeading: {
-    fontWeight: '900',
+    fontWeight: '700',
     fontSize: fonts.md,
     color: colors.green,
     textAlign: 'center',
-    paddingLeft: spacing.md,
-    width: 150,
   },
   square: {
     backgroundColor: colors.white,
-    padding: spacing.sm,
-    borderRadius: 7,
-    paddingHorizontal: 10,
+    borderRadius: 4,
+    height: 20,
+    width: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   cardBar: {
     backgroundColor: colors.green,
     marginVertical: spacing.md,
-    marginHorizontal: spacing.md,
-    paddingHorizontal: 10,
+    // marginHorizontal: spacing.md,
+    // paddingHorizontal: 10,
+    alignItems: 'center',
+    flexDirection: 'row',
     borderRadius: 10,
-    padding: spacing.sm,
-    width: 140,
-    height: 40,
+    width: 160,
+    height: 33,
+    justifyContent: 'space-around',
   },
   image: {
     width: 160,
-    height: 110,
-    borderRadius: 20,
-    alignSelf: 'center',
+    height: 96,
+    borderRadius: 15,
   },
   barText: {
-    paddingHorizontal: 5,
     color: colors.white,
     fontSize: 12,
     fontWeight: 'bold',
