@@ -18,9 +18,15 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const Profile = () => {
+const Profile = ({navigation}: {navigation: any}) => {
   return (
     <SafeAreaView style={styles.container}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Drawer');
+        }}>
+        <Image source={require('../../assets/image/Icon22.png')} />
+      </TouchableOpacity>
       <View style={{flex: 1}}>
         <View style={styles.imageContainer}>
           <Image
@@ -131,19 +137,21 @@ const Profile = () => {
                   alignItems: 'center',
                   borderBottomWidth: 1,
                   borderBlockColor: colors.lightGrey2,
-                  
                 }}>
                 <Text style={styles.modalTitle}>Logout</Text>
               </View>
               <Text style={styles.modalSubtitle}>
                 Are you sure you want to logout?
               </Text>
-              <View style={{flexDirection:'row', justifyContent:'space-around'}}>
+              <View
+                style={{flexDirection: 'row', justifyContent: 'space-around'}}>
                 <TouchableOpacity style={styles.modalButton}>
                   <Text style={styles.modalButtonText}>Cancel</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.modalButton}>
-                  <Text style={[styles.modalButtonText,{color:'red'}]}>Yes,Logout</Text>
+                  <Text style={[styles.modalButtonText, {color: 'red'}]}>
+                    Yes,Logout
+                  </Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -166,7 +174,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    marginTop: spacing.xl,
+    marginTop: 0,
   },
   userName: {
     color: colors.black,

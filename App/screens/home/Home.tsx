@@ -7,25 +7,38 @@ import {
   Text,
   View,
   TouchableHighlight,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 import {fonts, spacing} from '../../util/size';
 import {colors} from '../../util/color';
 import {TouchableOpacity} from 'react-native';
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from 'react-native-responsive-screen';
 
-const Home = () => {
+const Home = ({navigation}: {navigation: any}) => {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={{flex: 1}}>
+    <>
+      <View
+        style={{
+          flex: 1,
+        }}>
         <View style={styles.hederView}>
           <Image
             source={require('../../assets/image/crobitenddddddd.png')}
             style={styles.headerLog}
           />
-          <Image
-            source={require('../../assets/image/User.png')}
-            style={styles.headerLog}
-          />
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Profile');
+            }}>
+            <Image
+              source={require('../../assets/image/User.png')}
+              style={styles.headerLog}
+            />
+          </TouchableOpacity>
         </View>
         <View style={styles.weatherView}>
           <Image
@@ -56,7 +69,7 @@ const Home = () => {
         </View>
 
         <TouchableOpacity>
-          <View style={styles.bar}>
+          <View style={[styles.bar, {marginHorizontal: spacing.sm}]}>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -81,203 +94,87 @@ const Home = () => {
 
         <Text style={styles.title}>Main Feature</Text>
 
-        <View style={styles.listContainer}>
-          <TouchableHighlight underlayColor={colors.green}>
-            <View style={styles.item}>
-              <View
-                style={{
-                  backgroundColor: colors.white,
-                  padding: spacing.md,
-                  borderRadius: 50,
-                  width: 60,
-                }}>
-                <Image
-                  source={require('../../assets/image/glass.png')}
-                  style={{alignSelf: 'center', height: 30, width: 30}}
-                />
-              </View>
-              <Text style={styles.itemText}>Diagnose your crop</Text>
-              <View style={styles.cardBar}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                  }}>
-                  <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Text
-                      style={{
-                        paddingHorizontal: 5,
-                        color: colors.white,
-                        fontSize: 12,
-                        fontWeight: 'bold',
-                      }}>
-                      Diagnose Diseases
-                    </Text>
-                  </View>
-
+        <ScrollView>
+          <View style={styles.listContainer}>
+            <TouchableHighlight underlayColor={colors.green}>
+              <View style={styles.item}>
+                <View style={styles.cardLogoCircle}>
+                  <Image
+                    source={require('../../assets/image/glass.png')}
+                    style={styles.cardLogo}
+                  />
+                </View>
+                <Text style={styles.itemText}>Diagnose your crop</Text>
+                <View style={styles.cardBar}>
                   <View
-                    style={[
-                      styles.square,
-                      {paddingHorizontal: 14, borderRadius: 7},
-                    ]}>
-                    <Image
-                      source={require('../../assets/image/Icon20.png')}
-                      style={{height: 7, width: 7}}
-                    />
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                    }}>
+                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                      <Text
+                        style={{
+                          paddingHorizontal: 5,
+                          color: colors.white,
+                          fontSize: 12,
+                          fontWeight: 'bold',
+                        }}>
+                        Diagnose Diseases
+                      </Text>
+                    </View>
+
+                    <View style={styles.cardBtn}>
+                      <Image
+                        source={require('../../assets/image/Icon20.png')}
+                        style={styles.cardBtnImg}
+                      />
+                    </View>
                   </View>
                 </View>
               </View>
-            </View>
-          </TouchableHighlight>
+            </TouchableHighlight>
 
-          <TouchableHighlight underlayColor={colors.green}>
-            <View style={styles.item}>
-              <View
-                style={{
-                  backgroundColor: colors.white,
-                  padding: spacing.md,
-                  borderRadius: 50,
-                  width: 60,
-                }}>
-                <Image
-                  source={require('../../assets/image/plant.png')}
-                  style={{alignSelf: 'center', height: 30, width: 30}}
-                />
-              </View>
-              <Text style={styles.itemText}>Follow your soil status</Text>
-              <View style={styles.cardBar}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                  }}>
-                  <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Text
-                      style={{
-                        paddingHorizontal: 5,
-                        color: colors.white,
-                        fontSize: 12,
-                        fontWeight: 'bold',
-                      }}>
-                      Soil Status
-                    </Text>
-                  </View>
-
+            <TouchableHighlight underlayColor={colors.green}>
+              <View style={styles.item}>
+                <View style={styles.cardLogoCircle}>
+                  <Image
+                    source={require('../../assets/image/plant.png')}
+                    style={styles.cardLogo}
+                  />
+                </View>
+                <Text style={styles.itemText}>Follow your soil status</Text>
+                <View style={styles.cardBar}>
                   <View
-                    style={[
-                      styles.square,
-                      {paddingHorizontal: 14, borderRadius: 7},
-                    ]}>
-                    <Image
-                      source={require('../../assets/image/Icon20.png')}
-                      style={{height: 7, width: 7}}
-                    />
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                    }}>
+                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                      <Text
+                        style={{
+                          paddingHorizontal: 5,
+                          color: colors.white,
+                          fontSize: 12,
+                          fontWeight: 'bold',
+                        }}>
+                        Soil Status
+                      </Text>
+                    </View>
+
+                    <View style={styles.cardBtn}>
+                      <Image
+                        source={require('../../assets/image/Icon20.png')}
+                        style={styles.cardBtnImg}
+                      />
+                    </View>
                   </View>
                 </View>
               </View>
-            </View>
-          </TouchableHighlight>
-        </View>
-
-        <View style={styles.listContainer}>
-          <TouchableHighlight underlayColor={colors.green}>
-            <View style={styles.item}>
-              <View
-                style={{
-                  backgroundColor: colors.white,
-                  padding: spacing.md,
-                  borderRadius: 50,
-                  width: 60,
-                }}>
-                <Image
-                  source={require('../../assets/image/glass.png')}
-                  style={{alignSelf: 'center', height: 30, width: 30}}
-                />
-              </View>
-              <Text style={styles.itemText}>Diagnose your crop</Text>
-              <View style={styles.cardBar}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                  }}>
-                  <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Text
-                      style={{
-                        paddingHorizontal: 5,
-                        color: colors.white,
-                        fontSize: 12,
-                        fontWeight: 'bold',
-                      }}>
-                      Diagnose Diseases
-                    </Text>
-                  </View>
-
-                  <View
-                    style={[
-                      styles.square,
-                      {paddingHorizontal: 14, borderRadius: 7},
-                    ]}>
-                    <Image
-                      source={require('../../assets/image/Icon20.png')}
-                      style={{height: 7, width: 7}}
-                    />
-                  </View>
-                </View>
-              </View>
-            </View>
-          </TouchableHighlight>
-
-          <TouchableHighlight underlayColor={colors.green}>
-            <View style={styles.item}>
-              <View
-                style={{
-                  backgroundColor: colors.white,
-                  padding: spacing.md,
-                  borderRadius: 50,
-                  width: 60,
-                }}>
-                <Image
-                  source={require('../../assets/image/plant.png')}
-                  style={{alignSelf: 'center', height: 30, width: 30}}
-                />
-              </View>
-              <Text style={styles.itemText}>Follow your soil status</Text>
-              <View style={styles.cardBar}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                  }}>
-                  <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Text
-                      style={{
-                        paddingHorizontal: 5,
-                        color: colors.white,
-                        fontSize: 12,
-                        fontWeight: 'bold',
-                      }}>
-                      Soil Status
-                    </Text>
-                  </View>
-
-                  <View
-                    style={[
-                      styles.square,
-                      {paddingHorizontal: 14, borderRadius: 7},
-                    ]}>
-                    <Image
-                      source={require('../../assets/image/Icon20.png')}
-                      style={{height: 7, width: 7}}
-                    />
-                  </View>
-                </View>
-              </View>
-            </View>
-          </TouchableHighlight>
-        </View>
+            </TouchableHighlight>
+          </View>
+        </ScrollView>
       </View>
-    </SafeAreaView>
+    </>
   );
 };
 
@@ -345,11 +242,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: colors.black,
     marginBottom: spacing.md,
+    marginHorizontal: spacing.sm,
   },
   listContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: spacing.md,
+    marginHorizontal: spacing.sm,
   },
   item: {
     backgroundColor: colors.lightGreen1,
@@ -363,17 +262,17 @@ const styles = StyleSheet.create({
         shadowRadius: 10,
       },
       android: {
-        elevation: 5,
+        elevation: 1,
         alignItems: 'center',
       },
     }),
-    borderRadius: 20,
+    borderRadius: 15,
     overflow: 'hidden',
-    width: 170,
-    height: 160,
+    width: 172,
+    height: 180,
   },
   itemText: {
-    padding: spacing.sm,
+    paddingVertical: spacing.sm,
     color: colors.green,
     fontSize: 11,
     fontWeight: 'bold',
@@ -381,11 +280,32 @@ const styles = StyleSheet.create({
   },
   cardBar: {
     backgroundColor: colors.green,
-    marginVertical: spacing.sm,
-    paddingHorizontal: 5,
     borderRadius: 10,
     padding: spacing.sm,
-    width: 162,
-    height: 40,
+    width: 156,
+    height: 30,
+    justifyContent: 'center',
+    bottom: -12,
   },
+  cardBtn: {
+    height: 18,
+    width: 24,
+    borderRadius: 4,
+    backgroundColor: colors.white,
+    justifyContent: 'center',
+  },
+  cardBtnImg: {
+    height: 10,
+    width: 5,
+    alignSelf: 'center',
+  },
+  cardLogoCircle: {
+    backgroundColor: colors.white,
+    padding: spacing.md,
+    borderRadius: 50,
+    width: 80,
+    height: 75,
+    marginVertical: spacing.sm,
+  },
+  cardLogo: {alignSelf: 'center', height: 41, width: 41},
 });

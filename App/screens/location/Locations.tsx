@@ -13,13 +13,21 @@ import {fonts, spacing} from '../../util/size';
 import {colors} from '../../util/color';
 
 const Locations = () => {
-  const [selected, setSelected] = useState(1);
+  const [selected, setSelected] = useState(0);
   const [done, setDone] = useState(0);
   return (
-    <SafeAreaView>
+    <>
       <Image
         source={require('../../assets/image/selection.png')}
-        style={{marginVertical: spacing.xxl, alignSelf: 'center'}}
+        style={{
+          marginVertical: spacing.xxl,
+          alignSelf: 'center',
+          width: 392,
+          height: 260,
+          overflow: 'hidden',
+          paddingHorizontal: spacing.sm,
+        }}
+        resizeMode="contain"
       />
       {!selected ? (
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
@@ -61,45 +69,43 @@ const Locations = () => {
               </View>
             </View>
           </View>
-          {
-            done ?(
-              <View>
-            <TouchableOpacity
-              onPress={() => 'Login'}
-              style={[
-                styles.btn,
-                {
-                  backgroundColor: colors.white,
-                  borderWidth: 2,
-                  alignSelf: 'center',
-                  borderColor: colors.green,
-                  width: 350,
-                  borderRadius: 15,
-                },
-              ]}>
-              <Text style={[styles.btnText, {color: colors.green}]}>Add</Text>
-            </TouchableOpacity>
-          </View>
-            ):(
-              <View>
-                <TouchableOpacity
-              onPress={() => 'Login'}
-              style={[
-                styles.btn,
-                {
-                  alignSelf: 'center',
-                  width: 350,
-                  borderRadius: 15,
-                },
-              ]}>
-              <Text style={[styles.btnText]}>Done</Text>
-            </TouchableOpacity>
-              </View>
-            )
-          }
+          {done ? (
+            <View>
+              <TouchableOpacity
+                onPress={() => 'Login'}
+                style={[
+                  styles.btn,
+                  {
+                    backgroundColor: colors.white,
+                    borderWidth: 2,
+                    alignSelf: 'center',
+                    borderColor: colors.green,
+                    width: 350,
+                    borderRadius: 15,
+                  },
+                ]}>
+                <Text style={[styles.btnText, {color: colors.green}]}>Add</Text>
+              </TouchableOpacity>
+            </View>
+          ) : (
+            <View>
+              <TouchableOpacity
+                onPress={() => 'Login'}
+                style={[
+                  styles.btn,
+                  {
+                    alignSelf: 'center',
+                    width: 350,
+                    borderRadius: 15,
+                  },
+                ]}>
+                <Text style={[styles.btnText]}>Done</Text>
+              </TouchableOpacity>
+            </View>
+          )}
         </View>
       )}
-    </SafeAreaView>
+    </>
   );
 };
 

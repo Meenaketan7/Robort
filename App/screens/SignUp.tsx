@@ -14,8 +14,7 @@ import React, {useState} from 'react';
 import {colors} from '../util/color';
 import {fonts, spacing} from '../util/size';
 
-
-const SignUp = () => {
+const SignUp = ({navigation}: {navigation: any}) => {
   const [password, setPassword] = useState('');
   const [isPasswordVisible, setPasswordVisible] = useState(false);
 
@@ -24,135 +23,140 @@ const SignUp = () => {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-      <View style={{paddingHorizontal: 15}}>
-        <View style={styles.imageContainer}>
-          <Image
-            source={require('../assets/image/undraw_access_account_re_8spm.png')}
-            style={styles.image}
-          />
-        </View>
-        <Text style={styles.title}>Sign Up</Text>
-        <Text style={styles.instruction}>Create an account to continue</Text>
-        <View style={styles.SectionStyle}>
-          <Image
-            source={require('../assets/image/Group.png')}
-            style={styles.inputIcon}
-          />
-          <TextInput
-            placeholder="First Name"
-            placeholderTextColor={colors.lightGrey2}
-            style={styles.inputStyle}
-            autoCorrect={false}
-            returnKeyType="next"
-            underlineColorAndroid="#0000"
-          />
-        </View>
-        <View style={styles.SectionStyle}>
-          <Image
-            source={require('../assets/image/Group.png')}
-            style={styles.inputIcon}
-          />
-          <TextInput
-            placeholder="Last Name"
-            placeholderTextColor={colors.lightGrey2}
-            style={styles.inputStyle}
-            autoCorrect={false}
-            returnKeyType="next"
-            underlineColorAndroid="#0000"
-          />
-        </View>
-        <View style={styles.SectionStyle}>
-          <Image
-            source={require('../assets/image/email.png')}
-            style={styles.inputIcon}
-          />
-          <TextInput
-            placeholder="Email"
-            placeholderTextColor={colors.lightGrey2}
-            style={styles.inputStyle}
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoCorrect={false}
-            returnKeyType="next"
-            underlineColorAndroid="#0000"
-          />
-        </View>
-        <View style={styles.SectionStyle}>
-          <Image
-            source={require('../assets/image/icon_lock.png')}
-            style={styles.inputIcon}
-          />
-          <TextInput
-            placeholder="Password"
-            placeholderTextColor={colors.lightGrey2}
-            style={styles.inputStyle}
-            secureTextEntry={!isPasswordVisible}
-            autoCapitalize="none"
-            autoCorrect={false}
-            returnKeyType="done"
-            underlineColorAndroid="#0000"
-            value={password}
-            onChangeText={setPassword}
-          />
-          <TouchableOpacity
-            style={{padding: 8}}
-            onPress={togglePasswordVisibility}>
-            <Image source={require('../assets/image/icon_Eye.png')} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={{paddingHorizontal: 15}}>
+          <View style={styles.imageContainer}>
+            <Image
+              source={require('../assets/image/undraw_access_account_re_8spm.png')}
+              style={styles.image}
+            />
+          </View>
+          <Text style={styles.title}>Sign Up</Text>
+          <Text style={styles.instruction}>Create an account to continue</Text>
+          <View style={styles.SectionStyle}>
+            <Image
+              source={require('../assets/image/Group.png')}
+              style={styles.inputIcon}
+            />
+            <TextInput
+              placeholder="First Name"
+              placeholderTextColor={colors.lightGrey2}
+              style={styles.inputStyle}
+              autoCorrect={false}
+              returnKeyType="next"
+              underlineColorAndroid="#0000"
+            />
+          </View>
+          <View style={styles.SectionStyle}>
+            <Image
+              source={require('../assets/image/Group.png')}
+              style={styles.inputIcon}
+            />
+            <TextInput
+              placeholder="Last Name"
+              placeholderTextColor={colors.lightGrey2}
+              style={styles.inputStyle}
+              autoCorrect={false}
+              returnKeyType="next"
+              underlineColorAndroid="#0000"
+            />
+          </View>
+          <View style={styles.SectionStyle}>
+            <Image
+              source={require('../assets/image/email.png')}
+              style={styles.inputIcon}
+            />
+            <TextInput
+              placeholder="Email"
+              placeholderTextColor={colors.lightGrey2}
+              style={styles.inputStyle}
+              keyboardType="email-address"
+              autoCapitalize="none"
+              autoCorrect={false}
+              returnKeyType="next"
+              underlineColorAndroid="#0000"
+            />
+          </View>
+          <View style={styles.SectionStyle}>
+            <Image
+              source={require('../assets/image/icon_lock.png')}
+              style={styles.inputIcon}
+            />
+            <TextInput
+              placeholder="Password"
+              placeholderTextColor={colors.lightGrey2}
+              style={styles.inputStyle}
+              secureTextEntry={!isPasswordVisible}
+              autoCapitalize="none"
+              autoCorrect={false}
+              returnKeyType="done"
+              underlineColorAndroid="#0000"
+              value={password}
+              onChangeText={setPassword}
+            />
+            <TouchableOpacity
+              style={{padding: 8}}
+              onPress={togglePasswordVisibility}>
+              <Image source={require('../assets/image/icon_Eye.png')} />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.SectionStyle}>
+            <Image
+              source={require('../assets/image/icon_lock.png')}
+              style={styles.inputIcon}
+            />
+            <TextInput
+              placeholder="Confirm password"
+              placeholderTextColor={colors.lightGrey2}
+              style={styles.inputStyle}
+              secureTextEntry={!isPasswordVisible}
+              autoCapitalize="none"
+              autoCorrect={false}
+              returnKeyType="done"
+              underlineColorAndroid="#0000"
+              value={password}
+              onChangeText={setPassword}
+            />
+            <TouchableOpacity
+              style={{padding: 8}}
+              onPress={togglePasswordVisibility}>
+              <Image source={require('../assets/image/icon_Eye.png')} />
+            </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity onPress={() => 'Login'} style={styles.btn}>
+            <Text style={styles.btnText}>Log In</Text>
           </TouchableOpacity>
-        </View>
-        <View style={styles.SectionStyle}>
-          <Image
-            source={require('../assets/image/icon_lock.png')}
-            style={styles.inputIcon}
-          />
-          <TextInput
-            placeholder="Confirm password"
-            placeholderTextColor={colors.lightGrey2}
-            style={styles.inputStyle}
-            secureTextEntry={!isPasswordVisible}
-            autoCapitalize="none"
-            autoCorrect={false}
-            returnKeyType="done"
-            underlineColorAndroid="#0000"
-            value={password}
-            onChangeText={setPassword}
-          />
-          <TouchableOpacity
-            style={{padding: 8}}
-            onPress={togglePasswordVisibility}>
-            <Image source={require('../assets/image/icon_Eye.png')} />
-          </TouchableOpacity>
-        </View>
 
-
-        <TouchableOpacity onPress={() => 'Login'} style={styles.btn}>
-          <Text style={styles.btnText}>Log In</Text>
-        </TouchableOpacity>
-
-        
-        <View style={styles.signContainer}>
-          <View style={styles.signBorder} />
-          <Text style={styles.signText}>or sign up with</Text>
-          <View style={styles.signBorder} />
+          <View style={styles.signContainer}>
+            <View style={styles.signBorder} />
+            <Text style={styles.signText}>or sign up with</Text>
+            <View style={styles.signBorder} />
+          </View>
+          <View style={styles.socialMediaContainer}>
+            <Image
+              source={require('../assets/image/facebook.png')}
+              style={styles.socialMedia}
+            />
+            <Image
+              source={require('../assets/image/google.png')}
+              style={styles.socialMedia}
+            />
+          </View>
+          <View style={styles.signUp}>
+            <Text style={{color: colors.lightGrey4}}>
+              Already have an account ?
+            </Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Login');
+              }}>
+              <Text style={{fontWeight: '700', color: colors.green}}>
+                Log In
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <View style={styles.socialMediaContainer}>
-          <Image
-            source={require('../assets/image/facebook.png')}
-            style={styles.socialMedia}
-          />
-          <Image
-            source={require('../assets/image/google.png')}
-            style={styles.socialMedia}
-          />
-        </View>
-        <View
-          style={styles.signUp}>
-          <Text style={{color:colors.lightGrey4}}>Already have an account ?</Text>
-          <Text style={{fontWeight: '700',color:colors.green}}>Log In</Text>
-        </View>
-      </View>
-
       </ScrollView>
     </SafeAreaView>
   );

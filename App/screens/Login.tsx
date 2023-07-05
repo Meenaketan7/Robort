@@ -13,7 +13,7 @@ import React, {useState} from 'react';
 import {colors} from '../util/color';
 import {fonts, spacing} from '../util/size';
 
-const Login = () => {
+const Login = ({navigation}: {navigation: any}) => {
   const [password, setPassword] = useState('');
   const [isPasswordVisible, setPasswordVisible] = useState(false);
 
@@ -89,10 +89,18 @@ const Login = () => {
             style={styles.socialMedia}
           />
         </View>
-        <View
-          style={styles.signUp}>
-          <Text style={{color:colors.lightGrey4}}>Don't have an account ?</Text>
-          <Text style={{fontWeight: '700',color:colors.green}}>Sign Up</Text>
+        <View style={styles.signUp}>
+          <Text style={{color: colors.lightGrey4}}>
+            Don't have an account ?
+          </Text>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('SignUp');
+            }}>
+            <Text style={{fontWeight: '700', color: colors.green}}>
+              Sign Up
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
